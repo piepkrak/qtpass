@@ -8,6 +8,7 @@
 #include <QSettings>
 #include "storemodel.h"
 #include "dialog.h"
+#include "newentrydialog.h"
 #include "singleapplication.h"
 
 namespace Ui {
@@ -28,9 +29,13 @@ public:
     void setGpgExecutable(QString);
     void checkConfig();
     void setApp(SingleApplication* app);
+    QFileSystemModel &getModel();
+    StoreModel &getProxyModel();
+    QString getPassStore();
 
 private slots:
     void on_updateButton_clicked();
+    void on_newEntryButton_clicked();
     void on_treeView_clicked(const QModelIndex &index);
     void on_configButton_clicked();
     void readyRead(bool finished);
@@ -50,6 +55,7 @@ private:
     QProcess *process;
     SingleApplication *a;
     Dialog* d;
+    NewEntryDialog* newEntryDialog;
     bool usePass;
     bool useClipboard;
     bool useAutoclear;
@@ -66,6 +72,7 @@ private:
     void executePass(QString);
     void executeWrapper(QString, QString);
     void config();
+    void newEntry();
     void enableUiElements(bool);
     void selectFirstFile();
     QModelIndex firstFile(QModelIndex parentIndex);

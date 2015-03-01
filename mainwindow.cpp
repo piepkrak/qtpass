@@ -140,6 +140,14 @@ void MainWindow::config() {
 }
 
 /**
+ * @brief MainWindow::newEntry
+ */
+void MainWindow::newEntry() {
+    newEntryDialog = new NewEntryDialog(this);
+    newEntryDialog->show();
+}
+
+/**
  * @brief MainWindow::on_updateButton_clicked
  */
 void MainWindow::on_updateButton_clicked()
@@ -152,6 +160,15 @@ void MainWindow::on_updateButton_clicked()
         executeWrapper(gitExecutable, "pull");
     }
 }
+
+/**
+ * @brief MainWindow::on_newEntryButton_clicked
+ */
+void MainWindow::on_newEntryButton_clicked()
+{
+    newEntry();
+}
+
 
 /**
  * @brief MainWindow::on_treeView_clicked
@@ -422,4 +439,19 @@ void MainWindow::messageAvailable(QString message)
     }
     show();
     raise();
+}
+
+QFileSystemModel& MainWindow::getModel()
+{
+    return model;
+}
+
+StoreModel& MainWindow::getProxyModel()
+{
+    return proxyModel;
+}
+
+QString MainWindow::getPassStore()
+{
+    return passStore;
 }
