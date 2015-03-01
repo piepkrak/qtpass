@@ -21,16 +21,19 @@ SOURCES   += main.cpp\
              dialog.cpp \
              storemodel.cpp \
              singleapplication.cpp \
-    util.cpp
+    util.cpp \
+    newentrydialog.cpp
 
 HEADERS   += mainwindow.h \
              dialog.h \
              storemodel.h \
              singleapplication.h \
-    util.h
+    util.h \
+    newentrydialog.h
 
 FORMS     += mainwindow.ui \
-             dialog.ui
+             dialog.ui \
+    newentrydialog.ui
 
 TRANSLATIONS    +=  localization/localization_nl_NL.ts \
                     localization/localization_de_DE.ts \
